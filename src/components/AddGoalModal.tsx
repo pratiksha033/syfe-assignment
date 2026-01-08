@@ -53,8 +53,8 @@ export default function AddGoalModal({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogOverlay className="bg-black/60 backdrop-blur-sm" />
-      <DialogContent className="sm:max-w-md bg-card text-card-foreground">
+      <DialogOverlay className="bg-black/60 backdrop-blur-sm z-40" />
+      <DialogContent className="sm:max-w-md bg-card text-card-foreground z-50">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
