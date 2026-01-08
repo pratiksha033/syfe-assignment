@@ -56,9 +56,9 @@ export default function AddGoalModal({
       <DialogOverlay className="bg-black/60 backdrop-blur-sm z-40" />
       <DialogContent
         className=" sm:max-w-md
-      bg-indigo-500/10
-      backdrop-blur-xl
-      border border-indigo-500/20
+      bg-card border border-border
+dark:bg-indigo-500/10 dark:backdrop-blur-xl dark:border-indigo-500/20
+
       text-foreground"
       >
         <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-indigo-400/10 to-transparent pointer-events-none" />

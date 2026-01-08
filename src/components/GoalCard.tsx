@@ -42,8 +42,9 @@ export default function GoalCard({
       className="
         relative overflow-hidden
         rounded-2xl p-5
-        bg-white/5 backdrop-blur-xl
-        border border-white/10
+        bg-card border border-border
+dark:bg-white/5 dark:backdrop-blur-xl dark:border-white/10
+
         shadow-lg hover:shadow-xl
         transition-all
         text-foreground

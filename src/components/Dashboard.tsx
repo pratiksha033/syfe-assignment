@@ -42,11 +42,12 @@ export default function Dashboard() {
       {/* Dashboard */}
       <div
         className="
-  rounded-2xl p-6 shadow-xl
-  bg-gradient-to-br from-white/10 via-white/5 to-white/10
-  backdrop-blur-xl
-  border border-white/20
-  text-white
+   rounded-2xl p-6 shadow-xl
+    bg-card
+    border border-border
+    text-foreground 
+    dark:bg-gradient-to-br dark:from-white/10 dark:via-white/5 dark:to-white/10
+    dark:backdrop-blur-xl
 "
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -94,14 +95,19 @@ export default function Dashboard() {
             className="
     flex items-center gap-2
     px-4 py-2 rounded-lg text-sm font-medium
-    bg-white/10 hover:bg-white/20
-    text-white
-    border border-white/20
-    backdrop-blur-md
+
+    bg-card border border-border
+    !text-slate-900 hover:bg-muted
     transition-all
+
+    dark:bg-white/10
+    dark:!text-white
+    dark:border-white/20
+    dark:hover:bg-white/20
+    dark:backdrop-blur-md
   "
           >
-            <RefreshCcw className="h-4 w-4" />
+            <RefreshCcw className="h-4 w-4 opacity-80" />
             Refresh Rate
           </button>
         </div>

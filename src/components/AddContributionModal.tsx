@@ -46,10 +46,11 @@ export default function AddContributionModal({
       <DialogContent
         className="
            z-50 sm:max-w-md
-          bg-emerald-500/10
-          backdrop-blur-xl
-          border border-emerald-500/20
-          text-foreground
+bg-card border border-border text-foreground
+dark:bg-emerald-500/10
+dark:backdrop-blur-xl
+dark:border-emerald-500/20
+
         "
       >
         {/* subtle glow */}
