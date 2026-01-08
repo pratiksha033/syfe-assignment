@@ -26,23 +26,33 @@ export default function AddContributionModal({
   onAdd,
 }: AddContributionModalProps) {
   const [amount, setAmount] = useState("");
+  const [date, setDate] = useState("");
 
   const handleSubmit = () => {
-    if (!amount || Number(amount) <= 0) return;
-    onAdd(Number(amount), new Date().toISOString());
+    if (!amount || Number(amount) <= 0 || !date) return;
+
+    onAdd(Number(amount), date);
     onClose();
+
+    // reset form
+    setAmount("");
+    setDate("");
   };
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogOverlay className="bg-black/60 backdrop-blur-sm z-40" />
+
       <DialogContent
-        className="sm:max-w-md z-50
-    bg-emerald-500/10
-    backdrop-blur-xl
-    border border-emerald-500/20
-    text-foreground"
+        className="
+           z-50 sm:max-w-md
+          bg-emerald-500/10
+          backdrop-blur-xl
+          border border-emerald-500/20
+          text-foreground
+        "
       >
+        {/* subtle glow */}
         <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-emerald-400/10 to-transparent pointer-events-none" />
 
         <motion.div
@@ -55,15 +65,24 @@ export default function AddContributionModal({
             <DialogTitle>Add Contribution</DialogTitle>
           </DialogHeader>
 
-          <div>
-            <label className="text-sm font-medium text-foreground">
-              Amount
-            </label>
+          {/* Amount */}
+          <div className="space-y-1">
+            <label className="text-sm font-medium">Amount</label>
             <Input
               type="number"
               placeholder="e.g. 5000"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
+            />
+          </div>
+
+          {/* Date */}
+          <div className="space-y-1">
+            <label className="text-sm font-medium">Date</label>
+            <Input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
             />
           </div>
 
@@ -74,12 +93,11 @@ export default function AddContributionModal({
             <Button
               onClick={handleSubmit}
               className="
-    bg-emerald-500/90 hover:bg-emerald-500
-    text-white
-    font-semibold
-    shadow-md hover:shadow-lg
-    transition-all
-  "
+                bg-emerald-500/90 hover:bg-emerald-500
+                text-white font-semibold
+                shadow-md hover:shadow-lg
+                transition-all
+              "
             >
               Add Contribution
             </Button>
