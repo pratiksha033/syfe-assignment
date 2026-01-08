@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Goal, Currency } from "@/types/goal";
+import { motion } from "framer-motion";
 
 import {
   Dialog,
@@ -9,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
+  DialogOverlay,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import {
@@ -51,54 +53,68 @@ export default function AddGoalModal({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>Add New Goal</DialogTitle>
-        </DialogHeader>
+      <DialogOverlay className="bg-black/60 backdrop-blur-sm" />
+      <DialogContent className="sm:max-w-md bg-card text-card-foreground">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="space-y-6"
+        >
+          <DialogHeader>
+            <DialogTitle>Add New Goal</DialogTitle>
+          </DialogHeader>
 
-        <div className="space-y-4">
-          <div>
-            <label className="text-sm font-medium">Goal Name</label>
-            <Input
-              placeholder="e.g. Emergency Fund"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+          <div className="space-y-4">
+            <div>
+              <label className="text-sm font-medium text-foreground">
+                Goal Name
+              </label>
+              <Input
+                placeholder="e.g. Emergency Fund"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-foreground">
+                Target Amount
+              </label>
+              <Input
+                type="number"
+                placeholder="e.g. 100000"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-foreground">
+                Currency
+              </label>
+              <Select
+                value={currency}
+                onValueChange={(val) => setCurrency(val as Currency)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select currency" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="INR">INR (₹)</SelectItem>
+                  <SelectItem value="USD">USD ($)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
-          <div>
-            <label className="text-sm font-medium">Target Amount</label>
-            <Input
-              type="number"
-              placeholder="e.g. 100000"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium">Currency</label>
-            <Select
-              value={currency}
-              onValueChange={(val) => setCurrency(val as Currency)}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select currency" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="INR">INR (₹)</SelectItem>
-                <SelectItem value="USD">USD ($)</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        <DialogFooter className="mt-6">
-          <Button variant="outline" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button onClick={handleSubmit}>Add Goal</Button>
-        </DialogFooter>
+          <DialogFooter>
+            <Button variant="outline" onClick={onClose}>
+              Cancel
+            </Button>
+            <Button onClick={handleSubmit}>Add Goal</Button>
+          </DialogFooter>
+        </motion.div>
       </DialogContent>
     </Dialog>
   );

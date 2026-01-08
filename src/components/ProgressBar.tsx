@@ -1,13 +1,17 @@
+import { motion } from "framer-motion";
+
 interface ProgressBarProps {
   percentage: number;
 }
 
 export default function ProgressBar({ percentage }: ProgressBarProps) {
   return (
-    <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-      <div
-        className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full transition-all duration-700 ease-out"
-        style={{ width: `${percentage}%` }}
+    <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: `${percentage}%` }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="h-full bg-primary rounded-full"
       />
     </div>
   );

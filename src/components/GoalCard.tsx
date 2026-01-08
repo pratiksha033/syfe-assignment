@@ -1,6 +1,7 @@
 import { Goal } from "@/types/goal";
 import { convertCurrency } from "@/utils/currency";
 import ProgressBar from "./ProgressBar";
+import { motion } from "framer-motion";
 
 interface GoalCardProps {
   goal: Goal;
@@ -24,7 +25,13 @@ export default function GoalCard({
   ).toFixed(2);
 
   return (
-    <div className="bg-card text-card-foreground p-5 rounded-2xl border border-border shadow-sm hover:shadow-md transition">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      whileHover={{ scale: 1.02 }}
+      className="bg-card text-card-foreground p-5 rounded-2xl border border-border shadow-sm hover:shadow-md transition"
+    >
       {/* Title */}
       <h3 className="text-xl font-semibold text-foreground">{goal.name}</h3>
 
@@ -59,6 +66,6 @@ export default function GoalCard({
       >
         + Add Contribution
       </button>
-    </div>
+    </motion.div>
   );
 }
