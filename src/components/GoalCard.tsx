@@ -3,6 +3,11 @@ import { convertCurrency } from "@/utils/currency";
 import ProgressBar from "./ProgressBar";
 import { motion } from "framer-motion";
 
+const currencySymbol: Record<string, string> = {
+  INR: "₹",
+  USD: "$",
+};
+
 interface GoalCardProps {
   goal: Goal;
   exchangeRate: number;
@@ -56,13 +61,15 @@ export default function GoalCard({
         <p className="text-sm text-muted-foreground">
           Target{" "}
           <span className="font-medium text-foreground">
-            {goal.currency} {goal.targetAmount}
+            {currencySymbol[goal.currency]}
+            {goal.targetAmount}
           </span>
         </p>
 
         {/* Converted */}
         <p className="text-xs text-muted-foreground">
-          Converted → {goal.currency === "USD" ? "INR" : "USD"}{" "}
+          Converted → {goal.currency === "USD" ? "₹" : "$"}
+          {convertedTarget}
           {convertedTarget}
         </p>
 
@@ -73,14 +80,16 @@ export default function GoalCard({
           <div className="flex justify-between text-xs text-muted-foreground">
             <span>{progress.toFixed(1)}% complete</span>
             <span>
-              Saved {goal.currency} {totalSaved}
+              Saved {currencySymbol[goal.currency]}
+              {totalSaved}
             </span>
           </div>
 
           <div className="flex justify-between text-xs text-muted-foreground">
             <span>{contributionsCount} contributions</span>
             <span>
-              {goal.currency} {remaining} remaining
+              {currencySymbol[goal.currency]}
+              {remaining} remaining
             </span>
           </div>
         </div>
