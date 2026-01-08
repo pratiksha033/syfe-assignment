@@ -9,6 +9,7 @@ import AddGoalModal from "./AddGoalModal";
 import AddContributionModal from "./AddContributionModal";
 import Toast from "./Toast";
 import ThemeToggle from "./ThemeToggle";
+import { RefreshCcw } from "lucide-react";
 
 export default function Dashboard() {
   const { goals, addGoal, addContribution } = useGoals();
@@ -35,7 +36,15 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       {/* Dashboard */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6 rounded-2xl shadow-lg">
+      <div
+        className="
+  rounded-2xl p-6 shadow-xl
+  bg-gradient-to-br from-white/10 via-white/5 to-white/10
+  backdrop-blur-xl
+  border border-white/20
+  text-white
+"
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <p className="text-sm opacity-80">Total Target</p>
@@ -71,8 +80,17 @@ export default function Dashboard() {
 
           <button
             onClick={fetchRate}
-            className="mt-3 md:mt-0 px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition"
+            className="
+    flex items-center gap-2
+    px-4 py-2 rounded-lg text-sm font-medium
+    bg-white/10 hover:bg-white/20
+    text-white
+    border border-white/20
+    backdrop-blur-md
+    transition-all
+  "
           >
+            <RefreshCcw className="h-4 w-4 opacity-80" />
             Refresh Rate
           </button>
         </div>
@@ -87,7 +105,13 @@ export default function Dashboard() {
 
           <button
             onClick={() => setShowAddGoal(true)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            className="
+    px-5 py-2.5 rounded-lg text-sm font-semibold
+    bg-indigo-500/90 hover:bg-indigo-500
+    text-white
+    shadow-md hover:shadow-lg
+    transition-all
+  "
           >
             + Add Goal
           </button>

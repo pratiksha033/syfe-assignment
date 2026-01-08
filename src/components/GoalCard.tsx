@@ -26,46 +26,67 @@ export default function GoalCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      whileHover={{ scale: 1.02 }}
-      className="bg-card text-card-foreground p-5 rounded-2xl border border-border shadow-sm hover:shadow-md transition"
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      whileHover={{ y: -4 }}
+      className="
+        relative overflow-hidden
+        rounded-2xl p-5
+        bg-white/5 backdrop-blur-xl
+        border border-white/10
+        shadow-lg hover:shadow-xl
+        transition-all
+        text-foreground
+      "
     >
-      {/* Title */}
-      <h3 className="text-xl font-semibold text-foreground">{goal.name}</h3>
+      {/* Soft glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 pointer-events-none" />
 
-      {/* Target */}
-      <p className="text-sm text-muted-foreground mt-1">
-        Target:{" "}
-        <span className="font-medium text-foreground">
-          {goal.currency} {goal.targetAmount}
-        </span>
-      </p>
+      {/* Content */}
+      <div className="relative z-10 space-y-3">
+        {/* Title */}
+        <h3 className="text-lg font-semibold">{goal.name}</h3>
 
-      {/* Converted */}
-      <p className="text-xs text-muted-foreground mb-4">
-        Converted: {goal.currency === "USD" ? "INR" : "USD"} {convertedTarget}
-      </p>
-
-      {/* Progress */}
-      <div className="mb-4">
-        <ProgressBar percentage={progress} />
-        <div className="flex justify-between text-xs text-muted-foreground mt-1">
-          <span>{progress.toFixed(1)}% complete</span>
-          <span>
-            Saved: {goal.currency} {totalSaved}
+        {/* Target */}
+        <p className="text-sm text-muted-foreground">
+          Target{" "}
+          <span className="font-medium text-foreground">
+            {goal.currency} {goal.targetAmount}
           </span>
-        </div>
-      </div>
+        </p>
 
-      {/* Action */}
-      <button
-        onClick={() => onAddContribution(goal.id)}
-        className="mt-4 w-full py-2 text-sm font-medium rounded-lg border border-primary text-primary hover:bg-primary/10 transition"
-      >
-        + Add Contribution
-      </button>
+        {/* Converted */}
+        <p className="text-xs text-muted-foreground">
+          Converted → {goal.currency === "USD" ? "INR" : "USD"}{" "}
+          {convertedTarget}
+        </p>
+
+        {/* Progress */}
+        <div className="pt-2">
+          <ProgressBar percentage={progress} />
+          <div className="flex justify-between text-xs text-muted-foreground mt-1">
+            <span>{progress.toFixed(1)}%</span>
+            <span>
+              Saved {goal.currency} {totalSaved}
+            </span>
+          </div>
+        </div>
+
+        {/* Action */}
+        <button
+          onClick={() => onAddContribution(goal.id)}
+          className="
+    mt-3 w-full py-2 text-sm font-semibold rounded-lg
+    bg-emerald-500/90 hover:bg-emerald-500
+    text-white
+    shadow-md hover:shadow-lg
+    transition-all
+  "
+        >
+          + Add Contribution
+        </button>
+      </div>
     </motion.div>
   );
 }

@@ -54,12 +54,20 @@ export default function AddGoalModal({
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogOverlay className="bg-black/60 backdrop-blur-sm z-40" />
-      <DialogContent className="sm:max-w-md bg-card text-card-foreground z-50">
+      <DialogContent
+        className=" sm:max-w-md
+      bg-indigo-500/10
+      backdrop-blur-xl
+      border border-indigo-500/20
+      text-foreground"
+      >
+        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-indigo-400/10 to-transparent pointer-events-none" />
+
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="space-y-6"
+          className="relative space-y-6"
         >
           <DialogHeader>
             <DialogTitle>Add New Goal</DialogTitle>
@@ -112,7 +120,18 @@ export default function AddGoalModal({
             <Button variant="outline" onClick={onClose}>
               Cancel
             </Button>
-            <Button onClick={handleSubmit}>Add Goal</Button>
+            <Button
+              onClick={handleSubmit}
+              className="
+    bg-indigo-500/90 hover:bg-indigo-500
+    text-white
+    font-semibold
+    shadow-md hover:shadow-lg
+    transition-all
+  "
+            >
+              Add Goal
+            </Button>
           </DialogFooter>
         </motion.div>
       </DialogContent>
