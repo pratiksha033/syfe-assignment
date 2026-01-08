@@ -9,7 +9,11 @@ import AddGoalModal from "./AddGoalModal";
 import AddContributionModal from "./AddContributionModal";
 import Toast from "./Toast";
 import ThemeToggle from "./ThemeToggle";
-import { RefreshCcw } from "lucide-react";
+import { RefreshCcw, TrendingUp, Plus } from "lucide-react";
+const currencySymbol: Record<string, string> = {
+  INR: "₹",
+  USD: "$",
+};
 
 export default function Dashboard() {
   const { goals, addGoal, addContribution } = useGoals();
@@ -48,16 +52,23 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <p className="text-sm opacity-80">Total Target</p>
-            <p className="text-3xl font-bold mt-1">{totalTarget}</p>
+            <p className="text-3xl font-bold mt-1">
+              ₹{totalTarget.toLocaleString()}
+            </p>
           </div>
 
           <div>
             <p className="text-sm opacity-80">Total Saved</p>
-            <p className="text-3xl font-bold mt-1">{totalSaved}</p>
+            <p className="text-3xl font-bold mt-1">
+              ₹{totalSaved.toLocaleString()}
+            </p>
           </div>
 
           <div>
-            <p className="text-sm opacity-80">Overall Progress</p>
+            <p className="text-sm opacity-80 flex items-center gap-1">
+              <TrendingUp className="h-4 w-4 opacity-70" />
+              Overall Progress
+            </p>
             <p className="text-3xl font-bold mt-1">
               {overallProgress.toFixed(1)}%
             </p>
@@ -70,8 +81,8 @@ export default function Dashboard() {
             {error && error}
             {!loading && !error && (
               <>
-                1 USD = ₹{rate.toFixed(2)}
-                <span className="block opacity-80">
+                <span className="font-medium">$1 = ₹{rate.toFixed(2)}</span>
+                <span className="block text-xs opacity-70 mt-0.5">
                   Last updated: {lastUpdated}
                 </span>
               </>
@@ -90,7 +101,7 @@ export default function Dashboard() {
     transition-all
   "
           >
-            <RefreshCcw className="h-4 w-4 opacity-80" />
+            <RefreshCcw className="h-4 w-4" />
             Refresh Rate
           </button>
         </div>
@@ -113,7 +124,10 @@ export default function Dashboard() {
     transition-all
   "
           >
-            + Add Goal
+            <span className="flex items-center gap-2">
+              <Plus className="h-4 w-4" />
+              Add Goal
+            </span>
           </button>
         </div>
       </div>
@@ -122,7 +136,7 @@ export default function Dashboard() {
       {goals.length === 0 ? (
         <div className="bg-card rounded-xl p-8 text-center text-muted-foreground border border-border">
           <p className="text-lg font-medium">No goals yet</p>
-          <p className="text-sm mt-1">
+          <p className="text-sm mt-1 opacity-80">
             Start by adding your first savings goal
           </p>
         </div>
