@@ -18,6 +18,10 @@ export default function GoalCard({
 
   const progress = Math.min((totalSaved / goal.targetAmount) * 100, 100);
 
+  const contributionsCount = goal.contributions.length;
+
+  const remaining = Math.max(goal.targetAmount - totalSaved, 0);
+
   const convertedTarget = convertCurrency(
     goal.targetAmount,
     goal.currency,
@@ -63,12 +67,20 @@ export default function GoalCard({
         </p>
 
         {/* Progress */}
-        <div className="pt-2">
+        <div className="pt-2 space-y-1">
           <ProgressBar percentage={progress} />
-          <div className="flex justify-between text-xs text-muted-foreground mt-1">
-            <span>{progress.toFixed(1)}%</span>
+
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>{progress.toFixed(1)}% complete</span>
             <span>
               Saved {goal.currency} {totalSaved}
+            </span>
+          </div>
+
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>{contributionsCount} contributions</span>
+            <span>
+              {goal.currency} {remaining} remaining
             </span>
           </div>
         </div>
