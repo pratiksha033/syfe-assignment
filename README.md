@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Syfe Assignment
 
-## Getting Started
+A responsive web application built as part of the Syfe technical assignment.  
+This project demonstrates a modern frontend implementation using **Next.js (TypeScript)** with clean structure, scalable components, and production-ready standards.
 
-First, run the development server:
+➡️ **Live Deployment:** https://syfe-assignment-mjvn.vercel.app/  
+➡️ **Source Code:** https://github.com/pratiksha033/syfe-assignment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This assignment showcases a front-end application built with Next.js that meets modern web application expectations — including responsive layout, clear navigation, modular architecture, and adherence to best practices.  
+It is designed for intuitive UI, maintainability, and scalability.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Features
 
-To learn more about Next.js, take a look at the following resources:
+✔ Built with **Next.js + TypeScript** for performance and type safety  
+✔ Modular component structure for UI reuse  
+✔ Responsive design (mobile + desktop)  
+✔ Client-side interactions handled with clean React patterns  
+✔ Deployed and hosted on **Vercel**  
+✔ SEO-ready pages with server-side rendering
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> 💡 Specific UI/UX, routing, or API integration details depend on assignment requirements.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧠 Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Core Technologies**
+- **Next.js** – React framework with hybrid rendering  
+- **React** – Component-based architecture  
+- **TypeScript** – Static typing for safer code  
+- **Vercel** – Deployment platform  
+- **ESLint + Prettier (optional)** – Code formatting and linting
+
+---
+
+## 📁 Project Structure
+
+    ```text
+    ├── app/                  # Main application routes and pages
+    ├── components/           # Reusable UI components
+    ├── public/               # Static assets (images, icons, fonts)
+    ├── styles/               # Global and component styles
+    ├── .gitignore            # Files and folders to ignore in git
+    ├── next.config.ts        # Next.js configuration
+    ├── package.json          # Project scripts and dependencies
+    ├── tsconfig.json         # TypeScript configuration
+    └── README.md             # Project documentation
+
+## 🛠 Installation
+
+Follow these steps to run this project locally:
+
+1.Clone the repository
+
+    git clone https://github.com/pratiksha033/syfe-assignment.git
+    cd syfe-assignment
+
+
+2.Install dependencies
+
+    npm install
+
+
+3.Run the development server
+
+    npm run dev
+
+
+3.View the application
+
+    http://localhost:3000
+
+## 🚀 Deployment
+
+This application has been deployed to Vercel:
+
+- Connect the GitHub repository to Vercel
+
+- Configure environment variables (if any)
+
+- Deploy with zero-configuration and preview URLs
+
+## 📌 Notes
+
+- The UI and structure are optimized for clarity and performance.
+
+- This project can be expanded with additional functionality such as API integration, authentication, or state management if needed.
+
+- The assignment reflects best practices in modern React and Next.js development.
+
+## 📄 License
+
+This project is open source under the MIT License.
+
+## ✉️ Contact
+
+For questions or feedback, feel free to reach out:
+
+📧 Email: pratikshaparihar679@gmail.com
+
+🌐 GitHub: github.com/pratiksha033
+
+
+---
+
+
