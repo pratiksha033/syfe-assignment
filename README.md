@@ -13,7 +13,10 @@ This project demonstrates a modern frontend implementation using **Next.js (Type
 This assignment showcases a front-end application built with Next.js that meets modern web application expectations — including responsive layout, clear navigation, modular architecture, and adherence to best practices.  
 It is designed for intuitive UI, maintainability, and scalability.
 
-<img width="1895" height="882" alt="image" src="https://github.com/user-attachments/assets/cd50d0fc-0ac9-47d8-b25e-7d11a4a8ee90" />
+https://github.com/user-attachments/assets/4141c20a-1284-42e8-96a5-93aba3e41355
+
+
+
 
 
 ---
